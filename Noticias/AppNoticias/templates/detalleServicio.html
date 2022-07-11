@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="container mt-3 mb-5">
+	<!-- featured news -->
+	<div class="row my-3">
+		<!-- Left -->
+		<div class="col-md-8">
+			<div class="card mb-3">
+                <img src="/media/{{servicios.servicio_imagen}}" class="card-img-top" alt="{{servicios.titulo}}">
+			  <div class="card-body">
+			    <h5 class="card-title">{{servicios.titulo}}</h5>
+			    <hr/>
+			    <p class="card-text">{{servicios.descripcion}}</p>
+			  </div>
+
+			</div>
+
+
+		<!-- Related News -->
+		<div class="col-md-4">
+			<h3 class="mb-3 border-bottom pb-1">Servicios</h3>
+			<!-- Category Box -->
+			{% for servicio in servicioRelacionado %}
+			<div class="card mb-3 shadow">
+                <img src="/media/{{servicios.servicio_imagen}}" class="card-img-top" alt="{{servicios.titulo}}">
+			  <div class="card-body">
+			    <h5 class="card-title">{{servicios.titulo}}</h5>
+			    <hr/>
+			    <p class="card-text"><a href="/detalles/{{servicios.id}}" class="btn btn-sm btn-primary">Leer más</a></p>
+			  </div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</main>
+{% endblock %}

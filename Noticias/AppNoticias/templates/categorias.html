@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<main class="container mt-3 mb-5">
+	<h3 class="border-bottom pb-1 my-4">Produccion de planta</h3>
+    <div class="row">
+		<!-- Category Box -->
+		{% for categoria in categorias %}
+		<div class="col-md-4">
+			<div class="card rounded shadow-sm border-0">
+            <img height="250" width="100" src="/media/{{categoria.categoria_imagen}}" class="card-img-top" alt="{{categoria.titulo}}">
+			  <div class="card-body">
+			    <h5 class="card-title">{{categoria.titulo}}</h5>
+			    <hr/>
+			    <p class="card-text"><a href="categoria/{{categoria.id}}" class="btn btn-sm btn-primary">Ver producción</a></p>
+			  </div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</main>
+{% endblock %}
