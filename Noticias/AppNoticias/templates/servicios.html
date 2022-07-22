@@ -2,10 +2,11 @@
 {% extends 'base.html' %}
 {% block content %}
 <main class="container mt-3 mb-5">
-	<h3 class="border-bottom pb-1 my-4">Todos los servicios</h3>
+	<h3 class="border-bottom pb-1 my-4">Nuestros Servicios</h3>
     <div class="row">
 		<!-- Category Box -->
 		{% for servicio in servicios %}
+		<br>
 		<div class="col-md-4">
 			<div class="card rounded shadow-sm border-0">
             <img height="250" width="100" src="/media/{{servicio.servicio_imagen}}" class="card-img-top" alt="{{servicio.titulo}}">
@@ -15,8 +16,12 @@
 			    <p class="card-text"><a href="detalleServicio/{{servicio.id}}" class="btn btn-sm btn-primary">Ver más</a></p>
 			  </div>
 			</div>
+			<br>
 		</div>
+		<br>
 		{% endfor %}
+
 	</div>
+
 </main>
 {% endblock %}

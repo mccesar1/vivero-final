@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="container mt-3 mb-5">
+	<h3 class="border-bottom pb-1 my-4">Galeria</h3>
+    <div class="row">
+		<!-- Category Box -->
+		{% for imagen in imagenes %}
+		<div class="col-md-4">
+			<div class="card rounded shadow-sm border-0" data-toggle="modal" data-target="#exampleModal">
+            <img height="250" width="100"
+                src="/media/{{imagen.imagen}}" class="card-img-top" alt="{{imagen.titulo}}">
+
+
+
+			</div>
+			<br>
+		</div>
+		{% endfor %}
+	</div>
+
+
+</main>
+{% endblock %}

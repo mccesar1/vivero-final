@@ -1,37 +1,66 @@
 {% extends 'base.html' %}
 {% block content %}
-<main class="container mt-3 mb-5">
-	<!-- featured news -->
-	<div class="row my-3">
-		<!-- Left -->
-		<div class="col-md-8">
-			<div class="card mb-3">
-                <img src="/media/{{noticia.imagen}}" class="card-img-top" alt="{{noticia.titulo}}">
-			  <div class="card-body">
-			    <h5 class="card-title">{{noticia.titulo}}</h5>
-			    <hr/>
-			    <p class="card-text">{{noticia.detalles}}</p>
-			  </div>
-			  <div class="card-footer">
-			  	En <a href="/categoria/{{noticia.categoria.id}}">{{noticia.categoria.titulo}}</a>
-			  </div>
-			</div>
 
+
+<div class="container">
+		<div class="card55">
+			<div class="container-fliud">
+				<div class="wrapper row">
+					<div class="preview col-md-6">
+
+						<div class="preview-pic tab-content">
+						  <div class="tab-pane active" id="pic-1"><img src="/media/{{noticia.imagen}}" /></div>
+<!--						  <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>-->
+<!--						  <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>-->
+<!--						  <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>-->
+<!--						  <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div>-->
+						</div>
+<!--						<ul class="preview-thumbnail nav nav-tabs">-->
+<!--&lt;!&ndash;						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;						  <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;						  <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;						  <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;						  <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>&ndash;&gt;-->
+<!--						</ul>-->
+
+					</div>
+					<div class="details col-md-6">
+						<h3 class="product-title">{{noticia.titulo}}</h3>
+
+						<p class="product-description">{{noticia.detalles}}</p>
+
+						<p class="vote"><strong></strong> <strong>Los mejores de la región</strong></p>
+
+						<div class="action" >
+							<a href="{% url 'contacto' %}">
+							<button class="add-to-cart btn btn-default" type="button" >Solicita una cotización</button>
+</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 		<!-- Related News -->
-		<div class="col-md-4">
-			<h3 class="mb-3 border-bottom pb-1">En esta categoria</h3>
+		<div class="col-md-7">
+			<h3 class="mb-3 border-bottom pb-1">En {{noticia.categoria.titulo}}</h3>
 			<!-- Category Box -->
+			<div class="row ">
 			{% for noticia in noticia_relacionada %}
-			<div class="card mb-3 shadow">
-                <img src="/media/{{noticia.imagen}}" class="card-img-top" alt="{{noticia.titulo}}">
-			  <div class="card-body">
+				<div class="col-md-4">
+			<div class="card mb-3 shadow" style="min-height:345px">
+                <img height="150" width="50" src="/media/{{noticia.imagen}}" class="card-img-top" alt="{{noticia.titulo}}">
+			 <div class="card-body h-100" >
+
 			    <h5 class="card-title">{{noticia.titulo}}</h5>
 			    <hr/>
 			    <p class="card-text"><a href="/detalles/{{noticia.id}}" class="btn btn-sm btn-primary">Leer más</a></p>
 			  </div>
 			</div>
+			</div>
 			{% endfor %}
 		</div>
 	</div>
-</main>
+
 {% endblock %}
+

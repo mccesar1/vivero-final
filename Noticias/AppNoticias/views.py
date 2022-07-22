@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Plantas, Categoria, Servicios
+from .models import Plantas, Categoria, Servicios, Galeria
 
 # Create your views here.
 
@@ -64,7 +64,7 @@ def plantas(request, id):
 def detalleServicio(request, id):
     servicios=Servicios.objects.get(pk=id)
 
-    servicioRelacionado=Servicios.objects.filter(pk=id)
+    servicioRelacionado=Servicios.objects.all().exclude(id=id)
 
     return render (request, 'detalleServicio.html',{
         'servicios': servicios,
@@ -74,3 +74,9 @@ def detalleServicio(request, id):
 def contacto(request):
 
     return render (request, 'contacto.html')
+
+def galeria(request,):
+    imagenes= Galeria.objects.all()
+    return render (request, 'galeria.html',{
+        'imagenes':imagenes
+    })

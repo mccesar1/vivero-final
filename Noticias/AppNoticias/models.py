@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Categoria(models.Model):
+
     titulo = models.CharField(max_length=100)
     categoria_imagen = models.ImageField(upload_to='imgs/')
 
@@ -35,3 +36,11 @@ class Plantas(models.Model):
     def __str__(self):
         return self.titulo
 
+class Galeria(models.Model):
+    titulo= models.TextField(max_length=20)
+    imagen= models.ImageField(upload_to='imgs/')
+
+    class Meta:
+        verbose_name_plural='Imagenes'
+    def __str__(self):
+        return self.titulo
