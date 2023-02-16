@@ -1,14 +1,14 @@
 
 {% extends 'base.html' %}
 {% block content %}
-<main class="container mt-3 mb-5">
+<main class="container-xl">
 	<h3 class="border-bottom pb-1 my-4">Todas las plantas</h3>
     <!-- News Box -->
     {% for noticia in todas_noticias %}
 	<div class="card mb-4 shadow">
 	  <div class="row no-gutters">
 	    <div class="col-md-3">
-            <img  height="150" width="80" src="/media/{{noticia.imagen}}" class="card-img-top" alt="{{noticia.titulo}}">
+            <img  height="150" width="80" src="{{noticia.imagen.url}}" class="card-img-top" alt="{{noticia.titulo}}">
 	    </div>
 	    <div class="col-md-8">
 	      <div class="card-body">

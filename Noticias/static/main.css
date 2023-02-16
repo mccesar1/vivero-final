@@ -1,0 +1,18 @@
+body{
+    background: #090909;
+    text-color:#000000;
+
+}
+.bg-black{
+ background: #000;
+}
+
+.img-thumbnail {
+   background-color: black;
+   border: 2px;
+}
+
+.card-project:hover{
+    border: 1px solid #fff;
+    cursor: pointer;
+}

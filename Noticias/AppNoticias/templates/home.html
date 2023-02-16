@@ -1,40 +1,29 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<main class="container mt-3 mb-5">
+<main class="container-xl">
 	<!-- featured news -->
-	<div class="row my-3">
-		<!-- Left -->
-		<div class="col-md-7">
-			<div class="card mb-3">
-			  <img src="media/{{primer_noticia.imagen}}" class="card-img-top" alt="{{primer_noticia.titulo}}">
-			  <div class="card-body">
-			    <h5 class="card-title">{{primer_noticia.titulo}}</h5>
-			    <hr/>
-			    <p class="card-text"><a href="/detalles/{{primer_noticia.id}}" class="btn btn-sm btn-primary">Leer más</a></p>
-			  </div>
+		<br>
+	<div class="container-xl">
+		  <div class="row align-items-start">
+			<div class="col">
+			  <img class="img-fluid" style="border-top-1"  src="{%static 'DSC_0210.JPG'%}" >
 			</div>
-		</div>
-		<!-- Right -->
-		<div class="col-md-5" style="max-height: 450px; overflow: auto;">
-			{% for noticia in tres_noticia %}
-			<!-- News Box -->
-			<div class="card">
-			  <div class="row no-gutters">
-			    <div class="col-md-4">
-					<img height="120" width="80" src="media/{{noticia.imagen}}" class="card-img-top" alt="{{noticia.titulo}}">
-			    </div>
-			    <div class="col-md-8">
-			      <div class="card-body">
-			        <h5 class="card-title">{{noticia.titulo}}</h5>
-			        <p class="card-text"><a href="/detalles/{{noticia.id}}" class="btn btn-sm btn-primary">Leer más</a></p>
-			      </div>
-			    </div>
-			  </div>
+			<div class="col">
+			  <p class="text-justify">>AAAAAAAAAAAAAAAAAAAALorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem 
+				Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown 
+				printer took a galley of type and scrambled it to make a type specimen book. It has survived 
+				not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+				It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+				and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+				 It has survived 
+                                not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 			</div>
-			<hr/>
-			{% endfor %}
-		</div>
-	</div>
+
+  </div>
+		<br>
 <!-- Category Wise News -->
 	{% for categoria in tres_categoria %}
 	<h3 class="border-bottom pb-1">{{categoria.titulo}} <a href="/categoria/{{categoria.id}}" class="float-right btn btn-sm btn-dark">En esta categoria</a></h3>
@@ -44,11 +33,11 @@
 			<!-- News box -->
 			<div class="col-md-3">
 				<div class="card mb-3 shadow">
-				<img height="120" width="60" src="/media/{{plantas.imagen}}" class="card-img-top" alt="{{plantas.titulo}}">
+				<img height="120" width="60" src="{{plantas.imagen.url}}" class="card-img-top" alt="{{plantas.titulo}}">
 				<div class="card-body">
-					<h5 class="card-title">{{plantas.titulo}}</h5>
+					<h5 class="card-title text-light">{{plantas.titulo}}</h5>
 					<hr/>
-					<p class="card-text"><a href="/detalles/{{plantas.id}}" class="btn btn-sm btn-primary">Leer más</a></p>
+					<p class="card-text"><a href="/detalles/{{plantas.id}}" class="btn btn-sm btn btn-outline-info">Leer más</a></p>
 				</div>
 				</div>
 			</div>

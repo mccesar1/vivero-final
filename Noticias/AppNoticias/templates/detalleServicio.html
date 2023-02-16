@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
+<div class="container-xl">
 		<div class="card55">
 			<div class="container-fliud">
 				<div class="wrapper row">
 					<div class="preview col-md-6">
 
 						<div class="preview-pic tab-content">
-						  <div class="tab-pane active" id="pic-1"><img src="/media/{{servicios.servicio_imagen}}" /></div>
+						  <div class="tab-pane active" id="pic-1"><img src="{{servicios.servicio_imagen.url}}" /></div>
 <!--						  <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>-->
 <!--						  <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>-->
 <!--						  <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>-->
@@ -49,8 +49,8 @@
 			{% for servicio in servicioRelacionado %}
 				  <div class="col-md-4">
 
-			<div class="card mb-3 shadow" style="min-height:345px"   >
-                <img height="150" width="50" src="/media/{{servicio.servicio_imagen}}" class="card-img-top" alt="{{servicio.titulo}}">
+			<div class="cardServicio mb-3 shadow" style="min-height:345px"   >
+                <img height="150" width="50" src="{{servicio.servicio_imagen.url}}" class="card-img-top" alt="{{servicio.titulo}}">
 			  <div class="card-body h-100" >
 			    <h5 class="card-title">{{servicio.titulo}}</h5>
 			    <hr/>

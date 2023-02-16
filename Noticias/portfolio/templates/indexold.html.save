@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{%block content%}
+
+{%load static%}
+<br>
+
+<header class="row bg-black">
+    <div class="col-md-4">
+<br>
+        <img style="width:70%" class="img-thumbnail" src="{% static 'yo.jpg'%}">
+    </div>
+    <div class="col-md-8 text-center">
+        <h2> Hola mi nombre es <strong>César del Río</strong> </h2>
+        <h3> Soy egresado de ingenieria en software en la Universidad
+ Autonoma de Chihuahua, terminé la carrera en enero del 2021, tengo 
+experiencia programando con java, Android,  python y javascript.
+ tengo una certificacion de linux y cibersegurid y experiencia en AWS.
+ <br> Este sitio esta desarrollado con Django y Bootstrap, en una vps de
+ ubuntu en  AWS, nginx y gunicorn como servidor y supervisor para controlar 
+los procesos, las imagenes se encuentran en un bucket de AWS, 
+soy un apasionado de linux y el codigo libre. me gusta leer sobre filosofia. </h3>
+        <a href="{% static 'porfolio/CésarDelRíoCV.pdf'%}" class="btn btn-primary btn-lg rounded-0  my-3" target="_blank"> <i class="bi bi-download"></i> Download CV</a>
+    </div>
+</header>
+
+<div class="row my-4 text-align: justify">
+
+    <h3>Mis Proyectos </h3>
+    <p></p>
+{% for proyecto in proyectos %}
+
+    <div class="col-md-4 p-4">
+        <div class="card bg-black card-project rounded shadow-sm border-0" style="min-height:405px"   >
+            <img src="{{proyecto.image.url}}" class="card-img-top">
+            <div class="card-body">
+                  <h2>{{proyecto.title}}</h2>
+    <h7>{{proyecto.description}}</h7>
+
+    <br>
+    <br>
+
+        <a href="{{proyecto.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank"><i class="bi bi-github"></i> Github </a>
+
+
+            </div>
+        </div>
+    </div>
+
+{%endfor%}
+</div>
+
+
+<div class="row my-4 text-center">
+
+    <h3>Mis Certificaciones</h3>
+    {% for certificacion in certificaciones %}
+    <div class="col-md-4 p-4">
+<div class="card bg-black card-project rounded shadow-sm border-0" style="min-height:405px"   >
+            <img src="{{certificacion.image.url}}" class="card-img-top">
+            <div class="card-body">
+                  <h2>{{certificacion.title}}</h2>
+    <h7>{{certificacion.description}}</h7>
+                <br>
+                <br>
+                
+
+            </div>
+        </div>
+    </div>
+     {%endfor%}
+</div>
+{%endblock%}
